@@ -4,6 +4,8 @@ var app = express();
 var urlencoded = require("body-parser").urlencoded();
 var cookieSession = require('cookie-session')
 
+var port = process.env.PORT || 3000;
+
 app.use(cookieSession({
   name: 'session',
   keys: ['fds23afs5df5s43adfasdfas2114']
@@ -57,6 +59,6 @@ app.get('/snake.js', function (req, res) {
   res.sendFile(path.resolve(__dirname +'/../frontend/snake.js'));
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(port, function () {
+  console.log('Example app listening on port '+port+'!');
 });
